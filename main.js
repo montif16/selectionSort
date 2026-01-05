@@ -54,6 +54,7 @@ function drawBars() {
     // Highlights override
     if (idx === hiI) fill = "rgba(0,150,255,0.7)";     // i
     if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
+    if (values[i] === values[values.length - 1]) fill = "rgba(0,255,120,0.45)"; // Fill final bar when everything is sorted.
 
     ctx.fillStyle = fill;
     ctx.fillRect(x, y, barWidth - 1, h);
@@ -61,7 +62,7 @@ function drawBars() {
 
   ctx.fillStyle = "rgba(255,255,255,0.85)";
   ctx.font = "16px sans-serif";
-  ctx.fillText(`Selection sort step: i=${i}`, 14, 60);
+  ctx.fillText(`Array index: i=${i}`, 14, 70);
 }
 
 // One click = do ONE outer-loop iteration of selection sort
