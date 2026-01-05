@@ -10,7 +10,6 @@ let minIndex = 0;   // index of smallest found so far in this pass
 
 // highlights
 let hiI = null;       // current i position
-let hiJ = null;       // scan position
 let hiMin = null;     // current min
 
 function resizeCanvas() {
@@ -27,7 +26,8 @@ function randomize() {
 function resetSelectionState() {
   i = 0;
   minIndex = 0;
-  hiI = hiJ = hiMin = null;
+  hiI = null;
+  hiMin = null;
 }
 
 function swap(a, b) {
@@ -53,7 +53,6 @@ function drawBars() {
 
     // Highlights override
     if (idx === hiI) fill = "rgba(0,150,255,0.7)";     // i
-    if (idx === hiJ) fill = "rgba(255,180,0,0.7)";     // j scan
     if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
 
     ctx.fillStyle = fill;
@@ -69,7 +68,7 @@ function drawBars() {
 // One click = do ONE outer-loop iteration of selection sort
 function stepSelectionSort() {
   if (i >= NumberOfSorts - 1) {
-    hiI = hiJ = hiMin = null;
+    hiI = hiMin = null;
     drawBars();
     return; // done
   }
@@ -91,8 +90,7 @@ function stepSelectionSort() {
 
   // Set highlights to show what happened this step
   hiI = i;
-  hiMin = minIndex;
-  hiJ = null;
+  hiMin = i;
 
   // Move boundary forward: i is now sorted
   i++;
