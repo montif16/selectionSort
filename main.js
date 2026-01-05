@@ -61,8 +61,7 @@ function drawBars() {
 
   ctx.fillStyle = "rgba(255,255,255,0.85)";
   ctx.font = "16px sans-serif";
-  ctx.fillText(`Selection sort step: i=${i}`, 12, 60);
-  ctx.fillText(`minIndex=${minIndex}`, 12, 80);
+  ctx.fillText(`Selection sort step: i=${i}`, 14, 60);
 }
 
 // One click = do ONE outer-loop iteration of selection sort
