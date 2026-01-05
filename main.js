@@ -52,9 +52,8 @@ function drawBars() {
     if (idx < i) fill = "rgba(0,255,120,0.45)";
 
     // Highlights override
-    if (idx === hiI) fill = "rgba(0,150,255,0.7)";     // i
     if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
-    if (values[i] === values[values.length - 1]) fill = "rgba(0,255,120,0.45)"; // Fill final bar when everything is sorted.
+    if (values[i] === values[values.length - 1]) fill = "rgba(0,255,120,0.45)"; // Fill final bars when everything is sorted.
 
     ctx.fillStyle = fill;
     ctx.fillRect(x, y, barWidth - 1, h);
