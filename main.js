@@ -9,7 +9,6 @@ let i = 0;          // boundary: left side [0..i-1] is sorted
 let minIndex = 0;   // index of smallest found so far in this pass
 
 // highlights
-let hiI = null;       // current i position
 let hiMin = null;     // current min
 
 function resizeCanvas() {
@@ -17,6 +16,7 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
 }
 
+// Fill the array with random values between 0 and 1
 function randomize() {
   values = [];
   for (let k = 0; k < NumberOfSorts; k++) values.push(Math.random());
@@ -26,10 +26,10 @@ function randomize() {
 function resetSelectionState() {
   i = 0;
   minIndex = 0;
-  hiI = null;
   hiMin = null;
 }
 
+// Standard swap operation used by the sorting algorithms
 function swap(a, b) {
   const t = values[a];
   values[a] = values[b];
@@ -40,10 +40,11 @@ function drawBars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const barWidth = canvas.width / NumberOfSorts;
 
+
   for (let idx = 0; idx < NumberOfSorts; idx++) {
-    const h = values[idx] * canvas.height;
-    const x = idx * barWidth;
-    const y = canvas.height - h;
+    const h = values[idx] * canvas.height; // height of bar based on , value from array
+    const x = idx * barWidth; // x position of bar
+    const y = canvas.height - h; // y position of bar. Simply drawing from bottom up.
 
     // Base: unsorted
     let fill = "rgba(255,255,255,0.25)";
@@ -58,7 +59,7 @@ function drawBars() {
     ctx.fillStyle = fill;
     ctx.fillRect(x, y, barWidth - 1, h);
   }
-
+  // Draw text info
   ctx.fillStyle = "rgba(255,255,255,0.85)";
   ctx.font = "16px sans-serif";
   ctx.fillText(`Array index: i=${i}`, 14, 70);
@@ -66,13 +67,14 @@ function drawBars() {
 
 // One click = do ONE outer-loop iteration of selection sort
 function stepSelectionSort() {
+  // Stop condition
   if (i >= NumberOfSorts - 1) {
-    hiI = hiMin = null;
+    hiMin = null;
     drawBars();
-    return; // done
+    return;
   }
 
-  // Start pass: assume min is at i
+  // Assume the first unsorted element is the minimum to get the algorithm started.
   minIndex = i;
 
   // Scan the unsorted part to find the smallest value
@@ -88,7 +90,6 @@ function stepSelectionSort() {
   }
 
   // Set highlights to show what happened this step
-  hiI = i;
   hiMin = i;
 
   // Move boundary forward: i is now sorted
