@@ -9,7 +9,7 @@ let i = 0;          // boundary: left side [0..i-1] is sorted
 let minIndex = 0;   // index of smallest found so far in this pass
 
 // highlights
-let hiMin = null;     // current min
+let hiMin = null;   
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -54,7 +54,7 @@ function drawBars() {
 
     // Highlights override
     if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
-    if (values[i] === values[values.length - 1]) fill = "rgba(0,255,120,0.45)"; // Fill final bars when everything is sorted.
+    if (i === NumberOfSorts - 1) fill = "rgba(0,255,120,0.45)"; // Fill final bars when everything is sorted.
 
     ctx.fillStyle = fill;
     ctx.fillRect(x, y, barWidth - 1, h);
