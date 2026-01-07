@@ -23,6 +23,11 @@ then marking it sorted and continuing onward to find the next smallest part of t
 - JavaScript
 - HTML Canvas
 
-## Author
-Lukas Simonsen
+## Info
+
+Navn: Lukas Kjellerup Simonsen
+Fag: Datastrukturer og algoritmer, E25
+Repo: https://github.com/montif16/selectionSort
+Deploy: https://montif16.github.io/selectionSort
+
 
