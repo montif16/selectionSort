@@ -26,8 +26,11 @@ then marking it sorted and continuing onward to find the next smallest part of t
 ## Info
 
 Navn: Lukas Kjellerup Simonsen
+
 Fag: Datastrukturer og algoritmer, E25
+
 Repo: https://github.com/montif16/selectionSort
+
 Deploy: https://montif16.github.io/selectionSort
 
 ![Selection sort visualization](assets/2026-01-0522-20-46-ezgif.com-video-to-gif-converter.gif)
