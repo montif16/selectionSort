@@ -53,7 +53,8 @@ function drawBars() {
     if (idx < i) fill = "rgba(0,255,120,0.45)";
 
     // Highlights override
-    if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
+    if (idx === i) {fill = "rgba(50, 96, 248, 0.75)";}
+    //if (idx === hiMin) fill = "rgba(255,80,80,0.75)";  // min
     if (i === NumberOfSorts - 1) fill = "rgba(0,255,120,0.45)"; // Fill final bars when everything is sorted.
 
     ctx.fillStyle = fill;
