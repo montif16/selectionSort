@@ -37,7 +37,7 @@ function swap(a, b) {
 }
 
 function drawBars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // (Start x, Start y, width, height)
   const barWidth = canvas.width / NumberOfSorts;
 
 
@@ -109,3 +109,25 @@ window.addEventListener("resize", () => {
 resizeCanvas();
 randomize();
 drawBars();
+
+
+
+// Full selection sort function for reference (not used in the step-wise version)
+/*
+function selectionSort(array) {
+
+  for (let i = 0; i < NumberOfSorts - 1; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < NumberOfSorts; j++) {
+      if (values[j] < values[minIndex]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      swap(i, minIndex);
+    }
+  }
+  return array;
+}
+*/
